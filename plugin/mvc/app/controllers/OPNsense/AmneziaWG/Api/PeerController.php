@@ -134,7 +134,7 @@ class PeerController extends ApiMutableModelControllerBase
         $keepalive=trim((string)$peer->persistent_keepalive);
         if($keepalive==='')$keepalive=trim((string)$server->clients_keepalive);
         if($keepalive==='')$keepalive='25';
-        $rows[]='Endpoint = '.$endpoint;$rows[]='AllowedIPs = 0.0.0.0/0';$rows[]='PersistentKeepalive = '.$keepalive;
+        $rows[]='Endpoint = '.$endpoint;$rows[]='AllowedIPs = 0.0.0.0/0,::/0';$rows[]='PersistentKeepalive = '.$keepalive;
         $name=preg_replace('/[^A-Za-z0-9_.-]+/','_',trim((string)$peer->name));if($name==='')$name='amneziawg-client';
         $config=implode("\n",$rows)."\n";
         // AmneziaVPN 5.0.1.5 multipart QR framing for a native AWG config.
